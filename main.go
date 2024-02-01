@@ -23,7 +23,12 @@ func main() {
 		html.New(w, r).With("home.html", nil).Render("index.html")
 	})
 	r.Get("/about", func(w http.ResponseWriter, r *http.Request) {
-		html.New(w, r).With("about.html", nil).Render("index.html")
+		vd := map[string]interface{}{}
+		vd["component1data"] = map[string]interface{}{
+			"component1_name":  "About",
+			"component1_value": "Value",
+		}
+		html.New(w, r).With("about.html", vd).Render("index.html")
 	})
 	r.Get("/part", func(w http.ResponseWriter, r *http.Request) {
 		html.New(w, r).With("home.html", nil).Render("item-part")

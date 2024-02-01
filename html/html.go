@@ -39,7 +39,7 @@ func New(w http.ResponseWriter, r *http.Request) *HTML {
 }
 
 func (h *HTML) With(name string, data map[string]interface{}) *TemplateRender {
-	templs := []string{"templates/" + name, "templates/index.html"}
+	templs := []string{"templates/components.html", "templates/" + name, "templates/index.html"}
 
 	tpl, err := template.New(name).Funcs(h.newFuncMap()).ParseFS(templates, templs...)
 	if err != nil {
