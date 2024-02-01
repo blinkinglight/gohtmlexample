@@ -63,6 +63,12 @@ func (h *HTML) newFuncMap() template.FuncMap {
 		"RANDOM": func() uint32 {
 			return uint32(rand.Int31n(999999999))
 		},
+		"LANG": func() string {
+			return h.viewData["language"].(string)
+		},
+		"T": func(key string) string {
+			return "translate:this:key:" + key
+		},
 	}
 }
 

@@ -17,6 +17,8 @@ func (m *Middlewares) Auth(next http.Handler) http.Handler {
 		// for every request set something, like UserID, UserName etc.
 		viewData["global"] = "this is global string for lets say authorized user"
 
+		viewData["language"] = "en_US"
+
 		// get custom navigation menu for authorized user or set default
 		viewData["nav"] = []MenuItem{
 			{Name: "Home", Path: "/"},
